@@ -694,7 +694,7 @@ export interface ApiAboutUsPageAboutUsPage extends Schema.SingleType {
     };
   };
   attributes: {
-    Text_description: Attribute.RichText &
+    text_description: Attribute.RichText &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -705,7 +705,7 @@ export interface ApiAboutUsPageAboutUsPage extends Schema.SingleType {
         minLength: 3;
         maxLength: 550;
       }>;
-    Subtitle_areas_of_activity: Attribute.String &
+    subtitle_areas_of_activity: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -716,7 +716,7 @@ export interface ApiAboutUsPageAboutUsPage extends Schema.SingleType {
         minLength: 3;
         maxLength: 40;
       }>;
-    Areas_of_activity: Attribute.Component<'about-us.activity-areas', true> &
+    areas_of_activity: Attribute.Component<'about-us.activity-areas', true> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -727,7 +727,7 @@ export interface ApiAboutUsPageAboutUsPage extends Schema.SingleType {
         min: 3;
         max: 3;
       }>;
-    Page_title: Attribute.String &
+    page_title: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -737,7 +737,7 @@ export interface ApiAboutUsPageAboutUsPage extends Schema.SingleType {
       Attribute.SetMinMaxLength<{
         minLength: 3;
       }>;
-    Subtitle_partners: Attribute.String &
+    subtitle_partners: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -747,7 +747,7 @@ export interface ApiAboutUsPageAboutUsPage extends Schema.SingleType {
       Attribute.SetMinMaxLength<{
         minLength: 3;
       }>;
-    Partner_logo: Attribute.Component<'image.image', true> &
+    partner_logo: Attribute.Component<'image.image', true> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -832,7 +832,7 @@ export interface ApiContactsPageContactsPage extends Schema.SingleType {
     };
   };
   attributes: {
-    Contacts: Attribute.Component<'contacts.contacts-contacts', true> &
+    contacts: Attribute.Component<'contacts.contacts-contacts', true> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -843,7 +843,7 @@ export interface ApiContactsPageContactsPage extends Schema.SingleType {
         min: 3;
         max: 3;
       }>;
-    Text_description: Attribute.RichText &
+    text_description: Attribute.RichText &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -854,7 +854,7 @@ export interface ApiContactsPageContactsPage extends Schema.SingleType {
         minLength: 3;
         maxLength: 800;
       }>;
-    Contact_us_text_yellow_block: Attribute.Text &
+    contact_us_text_yellow_block: Attribute.Text &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -864,6 +864,17 @@ export interface ApiContactsPageContactsPage extends Schema.SingleType {
       Attribute.SetMinMaxLength<{
         minLength: 3;
         maxLength: 170;
+      }>;
+    page_title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        minLength: 3;
+        maxLength: 30;
       }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -906,7 +917,7 @@ export interface ApiFounderFounder extends Schema.CollectionType {
     };
   };
   attributes: {
-    Name: Attribute.String &
+    name: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -917,7 +928,7 @@ export interface ApiFounderFounder extends Schema.CollectionType {
         minLength: 3;
         maxLength: 40;
       }>;
-    Description: Attribute.Text &
+    description: Attribute.Text &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -927,7 +938,7 @@ export interface ApiFounderFounder extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         minLength: 3;
       }>;
-    Email: Attribute.Email &
+    email: Attribute.Email &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -937,18 +948,7 @@ export interface ApiFounderFounder extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         minLength: 3;
       }>;
-    Phone_displaying: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }> &
-      Attribute.SetMinMaxLength<{
-        minLength: 3;
-        maxLength: 14;
-      }>;
-    Phone_link: Attribute.String &
+    phone_displaying: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -959,7 +959,18 @@ export interface ApiFounderFounder extends Schema.CollectionType {
         minLength: 3;
         maxLength: 14;
       }>;
-    Photo: Attribute.Component<'image.image'> &
+    phone_link: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        minLength: 3;
+        maxLength: 14;
+      }>;
+    photo: Attribute.Component<'image.image'> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {

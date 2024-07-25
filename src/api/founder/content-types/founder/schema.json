@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "Name": {
+    "name": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -27,7 +27,7 @@
       "maxLength": 40,
       "minLength": 3
     },
-    "Description": {
+    "description": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -37,7 +37,7 @@
       "required": true,
       "minLength": 3
     },
-    "Email": {
+    "email": {
       "pluginOptions": {
         "i18n": {
           "localized": false
@@ -47,7 +47,7 @@
       "required": true,
       "minLength": 3
     },
-    "Phone_displaying": {
+    "phone_displaying": {
       "pluginOptions": {
         "i18n": {
           "localized": false
@@ -59,7 +59,7 @@
       "regex": "^(([0-9\\+])+\\s)+([0-9])+$",
       "required": true
     },
-    "Phone_link": {
+    "phone_link": {
       "pluginOptions": {
         "i18n": {
           "localized": false
@@ -71,7 +71,7 @@
       "required": true,
       "regex": "^([0-9\\+])+$"
     },
-    "Photo": {
+    "photo": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {

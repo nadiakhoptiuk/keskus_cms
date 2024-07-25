@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "Text_description": {
+    "text_description": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -27,7 +27,7 @@
       "maxLength": 550,
       "minLength": 3
     },
-    "Subtitle_areas_of_activity": {
+    "subtitle_areas_of_activity": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -38,7 +38,7 @@
       "maxLength": 40,
       "minLength": 3
     },
-    "Areas_of_activity": {
+    "areas_of_activity": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -51,7 +51,7 @@
       "min": 3,
       "max": 3
     },
-    "Page_title": {
+    "page_title": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -61,7 +61,7 @@
       "required": true,
       "minLength": 3
     },
-    "Subtitle_partners": {
+    "subtitle_partners": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -71,7 +71,7 @@
       "required": true,
       "minLength": 3
     },
-    "Partner_logo": {
+    "partner_logo": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {

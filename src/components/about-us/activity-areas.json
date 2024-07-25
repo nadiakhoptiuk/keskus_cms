@@ -7,7 +7,7 @@
   },
   "options": {},
   "attributes": {
-    "Area_type": {
+    "area_type": {
       "type": "enumeration",
       "enum": [
         "support",
@@ -16,13 +16,13 @@
       ],
       "required": true
     },
-    "Title": {
+    "title": {
       "type": "string",
       "required": true,
       "maxLength": 70,
       "minLength": 3
     },
-    "List": {
+    "list": {
       "type": "text",
       "required": true,
       "minLength": 3

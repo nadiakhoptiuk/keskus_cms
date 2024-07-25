@@ -8,15 +8,15 @@ export interface AboutUsActivityAreas extends Schema.Component {
     description: '';
   };
   attributes: {
-    Area_type: Attribute.Enumeration<['support', 'adaptation', 'values']> &
+    area_type: Attribute.Enumeration<['support', 'adaptation', 'values']> &
       Attribute.Required;
-    Title: Attribute.String &
+    title: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         minLength: 3;
         maxLength: 70;
       }>;
-    List: Attribute.Text &
+    list: Attribute.Text &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         minLength: 3;
@@ -32,18 +32,24 @@ export interface ContactsContactsContacts extends Schema.Component {
     description: '';
   };
   attributes: {
-    Contact_type: Attribute.Enumeration<['phone', 'address', 'email']> &
+    contact_type: Attribute.Enumeration<['phone', 'address', 'email']> &
       Attribute.Required;
-    Content: Attribute.String &
+    content: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         minLength: 3;
         maxLength: 25;
       }>;
-    Link: Attribute.String &
+    link: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         minLength: 3;
+      }>;
+    contact_title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 3;
+        maxLength: 20;
       }>;
   };
 }
