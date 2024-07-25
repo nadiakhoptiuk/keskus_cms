@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_contacts_contacts_contacts_contacts",
+  "info": {
+    "displayName": "contacts_contacts",
+    "icon": "envelop",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Contact_type": {
+      "type": "enumeration",
+      "enum": [
+        "phone",
+        "address",
+        "email"
+      ],
+      "required": true
+    },
+    "Content": {
+      "type": "string",
+      "required": true,
+      "maxLength": 25,
+      "minLength": 3
+    },
+    "Link": {
+      "type": "string",
+      "required": true,
+      "minLength": 3
+    }
+  }
+}

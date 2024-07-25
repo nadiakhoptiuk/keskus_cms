@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_gallery_horizontal_gallery_items",
+  "info": {
+    "displayName": "HorizontalGalleryItem",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true,
+      "maxLength": 40,
+      "minLength": 3
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "alternativeImageDescription": {
+      "type": "string",
+      "required": true,
+      "maxLength": 40,
+      "minLength": 3
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_gallery_vertical_gallery_items",
+  "info": {
+    "displayName": "VerticalGalleryItem",
+    "icon": "dashboard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true,
+      "minLength": 3,
+      "maxLength": 40
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "alternativeImageDescription": {
+      "type": "string",
+      "required": true,
+      "minLength": 3,
+      "maxLength": 40
+    }
+  }
+}
