@@ -22,7 +22,7 @@ module.exports = ({ env }) => ({
       },
       actionOptions: {
         upload: {
-          folder: env("CLOUDINARY_FOLDER", "keskus-ukraina"), // Вкажіть назву папки, де будуть зберігатися зображення
+          asset_folder: env("CLOUDINARY_FOLDER", "keskus_ukraina"), // Вкажіть назву папки, де будуть зберігатися зображення
         },
         delete: {},
       },
