@@ -21,7 +21,9 @@ module.exports = ({ env }) => ({
         api_secret: env("CLOUDINARY_SECRET"),
       },
       actionOptions: {
-        upload: {},
+        upload: {
+          folder: env("CLOUDINARY_FOLDER", "keskus-ukraina"), // Вкажіть назву папки, де будуть зберігатися зображення
+        },
         delete: {},
       },
     },
