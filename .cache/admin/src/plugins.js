@@ -5,6 +5,7 @@ import upload from '@strapi/plugin-upload/strapi-admin';
 import graphql from '@strapi/plugin-graphql/strapi-admin';
 import i18N from '@strapi/plugin-i18n/strapi-admin';
 import usersPermissions from '@strapi/plugin-users-permissions/strapi-admin';
+import slug from 'custom-slug/strapi-admin';
 
 
 const plugins = {
@@ -14,6 +15,7 @@ const plugins = {
   'graphql': graphql,
   'i18n': i18N,
   'users-permissions': usersPermissions,
+  'slug': slug,
 };
 
 export default plugins;
