@@ -838,6 +838,13 @@ export interface ApiActivityActivity extends Schema.CollectionType {
         min: 1;
         max: 1;
       }>;
+    type: Attribute.Enumeration<['regular', 'irregular']> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
