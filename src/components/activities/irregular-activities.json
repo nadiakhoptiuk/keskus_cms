@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_activities_irregular_activities",
+  "info": {
+    "displayName": "irregular_activity",
+    "icon": "picture",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "date": {
+      "type": "date",
+      "required": true
+    }
+  }
+}

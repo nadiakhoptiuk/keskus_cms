@@ -24,6 +24,32 @@ export interface AboutUsActivityAreas extends Schema.Component {
   };
 }
 
+export interface ActivitiesIrregularActivities extends Schema.Component {
+  collectionName: 'components_activities_irregular_activities';
+  info: {
+    displayName: 'irregular_activity';
+    icon: 'picture';
+    description: '';
+  };
+  attributes: {
+    date: Attribute.Date & Attribute.Required;
+  };
+}
+
+export interface ActivitiesRegularActivity extends Schema.Component {
+  collectionName: 'components_activities_regular_activities';
+  info: {
+    displayName: 'regular_activity';
+  };
+  attributes: {
+    schedule: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 3;
+      }>;
+  };
+}
+
 export interface ContactsContactsContacts extends Schema.Component {
   collectionName: 'components_contacts_contacts_contacts_contacts';
   info: {
@@ -123,6 +149,8 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'about-us.activity-areas': AboutUsActivityAreas;
+      'activities.irregular-activities': ActivitiesIrregularActivities;
+      'activities.regular-activity': ActivitiesRegularActivity;
       'contacts.contacts-contacts': ContactsContactsContacts;
       'gallery.horizontal-gallery-item': GalleryHorizontalGalleryItem;
       'gallery.vertical-gallery-item': GalleryVerticalGalleryItem;

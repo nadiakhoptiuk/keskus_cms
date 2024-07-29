@@ -781,37 +781,84 @@ export interface ApiAboutUsPageAboutUsPage extends Schema.SingleType {
   };
 }
 
-export interface ApiAnnouncementAnnouncement extends Schema.CollectionType {
-  collectionName: 'announcements';
+export interface ApiActivityActivity extends Schema.CollectionType {
+  collectionName: 'activities';
   info: {
-    singularName: 'announcement';
-    pluralName: 'announcements';
-    displayName: 'Announcement';
+    singularName: 'activity';
+    pluralName: 'activities';
+    displayName: 'Activity';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    date: Attribute.Date;
-    title: Attribute.String;
-    Description: Attribute.Text;
-    image: Attribute.Component<'image.image'>;
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        minLength: 3;
+      }>;
+    description: Attribute.RichText &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        minLength: 3;
+      }>;
+    image: Attribute.Component<'image.image'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    activity_type: Attribute.DynamicZone<
+      ['activities.irregular-activities', 'activities.regular-activity']
+    > &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMax<{
+        min: 1;
+        max: 1;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::announcement.announcement',
+      'api::activity.activity',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::announcement.announcement',
+      'api::activity.activity',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::activity.activity',
+      'oneToMany',
+      'api::activity.activity'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1259,7 +1306,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about-us-page.about-us-page': ApiAboutUsPageAboutUsPage;
-      'api::announcement.announcement': ApiAnnouncementAnnouncement;
+      'api::activity.activity': ApiActivityActivity;
       'api::contacts-page.contacts-page': ApiContactsPageContactsPage;
       'api::founder.founder': ApiFounderFounder;
       'api::gallery.gallery': ApiGalleryGallery;

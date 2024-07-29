@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_activities_regular_activities",
+  "info": {
+    "displayName": "regular_activity"
+  },
+  "options": {},
+  "attributes": {
+    "schedule": {
+      "type": "string",
+      "required": true,
+      "minLength": 3
+    }
+  }
+}
