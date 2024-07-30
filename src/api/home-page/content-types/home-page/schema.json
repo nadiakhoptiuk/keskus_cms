@@ -97,26 +97,6 @@
       "type": "string",
       "required": true,
       "minLength": 3
-    },
-    "news_subtitle": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "required": true,
-      "minLength": 3
-    },
-    "news_card_learn_more": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "required": true,
-      "minLength": 3
     }
   }
 }
