@@ -133,6 +133,7 @@ export interface ImageImage extends Schema.Component {
   info: {
     displayName: 'Image';
     icon: 'picture';
+    description: '';
   };
   attributes: {
     image: Attribute.Media & Attribute.Required;
@@ -140,7 +141,27 @@ export interface ImageImage extends Schema.Component {
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         minLength: 3;
-        maxLength: 35;
+      }>;
+  };
+}
+
+export interface ServicesSupportCard extends Schema.Component {
+  collectionName: 'components_services_support_cards';
+  info: {
+    displayName: 'Support_card';
+    icon: 'handHeart';
+  };
+  attributes: {
+    icon: Attribute.Component<'image.image'> & Attribute.Required;
+    title: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 3;
+      }>;
+    description: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 3;
       }>;
   };
 }
@@ -155,6 +176,7 @@ declare module '@strapi/types' {
       'gallery.horizontal-gallery-item': GalleryHorizontalGalleryItem;
       'gallery.vertical-gallery-item': GalleryVerticalGalleryItem;
       'image.image': ImageImage;
+      'services.support-card': ServicesSupportCard;
     }
   }
 }

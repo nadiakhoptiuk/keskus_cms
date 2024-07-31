@@ -2,23 +2,23 @@
   "collectionName": "components_image_images",
   "info": {
     "displayName": "Image",
-    "icon": "picture"
+    "icon": "picture",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "alt": {
       "type": "string",
       "required": true,
       "unique": false,
-      "maxLength": 35,
       "minLength": 3
     }
   }
