@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_activities_labels",
+  "info": {
+    "displayName": "Label",
+    "icon": "paint",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "type_of_activity": {
+      "type": "enumeration",
+      "enum": [
+        "regular",
+        "irregular"
+      ],
+      "required": true
+    },
+    "filter_button_label": {
+      "type": "string",
+      "required": true,
+      "minLength": 2,
+      "unique": false
+    },
+    "label_at_image": {
+      "type": "string",
+      "unique": false,
+      "minLength": 3,
+      "required": true
+    }
+  }
+}

@@ -954,6 +954,78 @@ export interface ApiContactsPageContactsPage extends Schema.SingleType {
   };
 }
 
+export interface ApiEventsPageEventsPage extends Schema.SingleType {
+  collectionName: 'events_pages';
+  info: {
+    singularName: 'events-page';
+    pluralName: 'events-pages';
+    displayName: 'Events_page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    page_title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        minLength: 3;
+      }>;
+    labels: Attribute.Component<'activities.label', true> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMax<{
+        min: 2;
+        max: 2;
+      }>;
+    read_more_button: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        minLength: 3;
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::events-page.events-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::events-page.events-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::events-page.events-page',
+      'oneToMany',
+      'api::events-page.events-page'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiFounderFounder extends Schema.CollectionType {
   collectionName: 'founders';
   info: {
@@ -1515,6 +1587,7 @@ declare module '@strapi/types' {
       'api::about-us-page.about-us-page': ApiAboutUsPageAboutUsPage;
       'api::activity.activity': ApiActivityActivity;
       'api::contacts-page.contacts-page': ApiContactsPageContactsPage;
+      'api::events-page.events-page': ApiEventsPageEventsPage;
       'api::founder.founder': ApiFounderFounder;
       'api::gallery.gallery': ApiGalleryGallery;
       'api::gallery-event.gallery-event': ApiGalleryEventGalleryEvent;

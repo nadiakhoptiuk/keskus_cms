@@ -36,6 +36,29 @@ export interface ActivitiesIrregularActivities extends Schema.Component {
   };
 }
 
+export interface ActivitiesLabel extends Schema.Component {
+  collectionName: 'components_activities_labels';
+  info: {
+    displayName: 'Label';
+    icon: 'paint';
+    description: '';
+  };
+  attributes: {
+    type_of_activity: Attribute.Enumeration<['regular', 'irregular']> &
+      Attribute.Required;
+    filter_button_label: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 2;
+      }>;
+    label_at_image: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 3;
+      }>;
+  };
+}
+
 export interface ActivitiesRegularActivity extends Schema.Component {
   collectionName: 'components_activities_regular_activities';
   info: {
@@ -171,6 +194,7 @@ declare module '@strapi/types' {
     export interface Components {
       'about-us.activity-areas': AboutUsActivityAreas;
       'activities.irregular-activities': ActivitiesIrregularActivities;
+      'activities.label': ActivitiesLabel;
       'activities.regular-activity': ActivitiesRegularActivity;
       'contacts.contacts-contacts': ContactsContactsContacts;
       'gallery.horizontal-gallery-item': GalleryHorizontalGalleryItem;
