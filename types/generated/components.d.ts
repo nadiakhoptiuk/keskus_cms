@@ -189,6 +189,26 @@ export interface ServicesSupportCard extends Schema.Component {
   };
 }
 
+export interface TabsTabClipboard extends Schema.Component {
+  collectionName: 'components_tabs_tab_clipboards';
+  info: {
+    displayName: 'Tab_clipboard';
+    icon: 'layout';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 2;
+      }>;
+    Content: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 2;
+      }>;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -201,6 +221,7 @@ declare module '@strapi/types' {
       'gallery.vertical-gallery-item': GalleryVerticalGalleryItem;
       'image.image': ImageImage;
       'services.support-card': ServicesSupportCard;
+      'tabs.tab-clipboard': TabsTabClipboard;
     }
   }
 }

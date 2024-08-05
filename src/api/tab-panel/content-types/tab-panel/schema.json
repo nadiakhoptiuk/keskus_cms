@@ -1,11 +1,10 @@
 {
-  "kind": "singleType",
-  "collectionName": "events_pages",
+  "kind": "collectionType",
+  "collectionName": "tab_panels",
   "info": {
-    "singularName": "events-page",
-    "pluralName": "events-pages",
-    "displayName": "Events_page",
-    "description": ""
+    "singularName": "tab-panel",
+    "pluralName": "tab-panels",
+    "displayName": "Tab Panel"
   },
   "options": {
     "draftAndPublish": true
@@ -16,17 +15,16 @@
     }
   },
   "attributes": {
-    "page_title": {
+    "payment_system": {
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
       },
       "type": "string",
-      "required": true,
-      "minLength": 3
+      "required": true
     },
-    "labels": {
+    "tab_clipboard": {
       "type": "component",
       "repeatable": true,
       "pluginOptions": {
@@ -34,9 +32,8 @@
           "localized": true
         }
       },
-      "component": "activities.label",
-      "min": 2,
-      "max": 2,
+      "component": "tabs.tab-clipboard",
+      "min": 1,
       "required": true
     }
   }

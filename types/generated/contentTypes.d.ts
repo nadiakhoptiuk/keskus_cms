@@ -1010,16 +1010,6 @@ export interface ApiEventsPageEventsPage extends Schema.SingleType {
         min: 2;
         max: 2;
       }>;
-    read_more_button: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Attribute.SetMinMaxLength<{
-        minLength: 3;
-      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1322,16 +1312,6 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
       Attribute.SetMinMaxLength<{
         minLength: 3;
       }>;
-    announcement_button_today: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Attribute.SetMinMaxLength<{
-        minLength: 3;
-      }>;
     announcement_button_all_events: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
@@ -1451,6 +1431,7 @@ export interface ApiNewsPageNewsPage extends Schema.SingleType {
     singularName: 'news-page';
     pluralName: 'news-pages';
     displayName: 'News_page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1462,26 +1443,6 @@ export interface ApiNewsPageNewsPage extends Schema.SingleType {
   };
   attributes: {
     page_title: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Attribute.SetMinMaxLength<{
-        minLength: 3;
-      }>;
-    read_more_button: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Attribute.SetMinMaxLength<{
-        minLength: 3;
-      }>;
-    see_all_news_link: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1586,6 +1547,63 @@ export interface ApiServicesPageServicesPage extends Schema.SingleType {
   };
 }
 
+export interface ApiTabPanelTabPanel extends Schema.CollectionType {
+  collectionName: 'tab_panels';
+  info: {
+    singularName: 'tab-panel';
+    pluralName: 'tab-panels';
+    displayName: 'Tab Panel';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    payment_system: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    tab_clipboard: Attribute.Component<'tabs.tab-clipboard', true> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMax<{
+        min: 1;
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::tab-panel.tab-panel',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::tab-panel.tab-panel',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::tab-panel.tab-panel',
+      'oneToMany',
+      'api::tab-panel.tab-panel'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1613,6 +1631,7 @@ declare module '@strapi/types' {
       'api::new.new': ApiNewNew;
       'api::news-page.news-page': ApiNewsPageNewsPage;
       'api::services-page.services-page': ApiServicesPageServicesPage;
+      'api::tab-panel.tab-panel': ApiTabPanelTabPanel;
     }
   }
 }
