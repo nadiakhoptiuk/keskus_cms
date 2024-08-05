@@ -194,6 +194,7 @@ export interface TabsTabClipboard extends Schema.Component {
   info: {
     displayName: 'Tab_clipboard';
     icon: 'layout';
+    description: '';
   };
   attributes: {
     title: Attribute.String &
@@ -201,7 +202,7 @@ export interface TabsTabClipboard extends Schema.Component {
       Attribute.SetMinMaxLength<{
         minLength: 2;
       }>;
-    Content: Attribute.Text &
+    content: Attribute.Text &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         minLength: 2;
