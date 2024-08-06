@@ -1135,35 +1135,6 @@ export interface ApiFounderFounder extends Schema.CollectionType {
   };
 }
 
-export interface ApiGalleryGallery extends Schema.SingleType {
-  collectionName: 'galleries';
-  info: {
-    singularName: 'gallery';
-    pluralName: 'galleries';
-    displayName: 'Gallery';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::gallery.gallery',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::gallery.gallery',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiGalleryEventGalleryEvent extends Schema.CollectionType {
   collectionName: 'gallery_events';
   info: {
@@ -1181,24 +1152,21 @@ export interface ApiGalleryEventGalleryEvent extends Schema.CollectionType {
     };
   };
   attributes: {
-    Title: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Attribute.SetMinMaxLength<{
-        maxLength: 80;
-      }>;
-    Image: Attribute.Component<'image.image'> &
+    title: Attribute.Text &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Gallery: Attribute.Component<'image.image', true> &
+    main_image: Attribute.Component<'image.image'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    gallery: Attribute.Component<'image.image', true> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1206,9 +1174,20 @@ export interface ApiGalleryEventGalleryEvent extends Schema.CollectionType {
         };
       }> &
       Attribute.SetMinMax<{
-        min: 2;
+        min: 1;
       }>;
-    slug: Attribute.UID<'api::gallery-event.gallery-event', 'Title'>;
+    slug: Attribute.String &
+      Attribute.CustomField<
+        'plugin::slug.slug',
+        {
+          pattern: 'title';
+        }
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1625,7 +1604,6 @@ declare module '@strapi/types' {
       'api::contacts-page.contacts-page': ApiContactsPageContactsPage;
       'api::events-page.events-page': ApiEventsPageEventsPage;
       'api::founder.founder': ApiFounderFounder;
-      'api::gallery.gallery': ApiGalleryGallery;
       'api::gallery-event.gallery-event': ApiGalleryEventGalleryEvent;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::new.new': ApiNewNew;
