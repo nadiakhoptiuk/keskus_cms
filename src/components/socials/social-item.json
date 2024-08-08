@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_socials_social_items",
+  "info": {
+    "displayName": "Social_item",
+    "icon": "paperPlane"
+  },
+  "options": {},
+  "attributes": {
+    "social_network": {
+      "type": "enumeration",
+      "enum": [
+        "facebook",
+        "telegram",
+        "viber"
+      ],
+      "required": true
+    },
+    "link": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

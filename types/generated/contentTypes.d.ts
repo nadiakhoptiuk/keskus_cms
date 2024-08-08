@@ -1633,6 +1633,41 @@ export interface ApiServicesPageServicesPage extends Schema.SingleType {
   };
 }
 
+export interface ApiSocialNetworkSocialNetwork extends Schema.SingleType {
+  collectionName: 'social_networks';
+  info: {
+    singularName: 'social-network';
+    pluralName: 'social-networks';
+    displayName: 'Social_network';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    socials: Attribute.Component<'socials.social-item', true> &
+      Attribute.Required &
+      Attribute.SetMinMax<{
+        min: 1;
+        max: 3;
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::social-network.social-network',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::social-network.social-network',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTabPanelTabPanel extends Schema.CollectionType {
   collectionName: 'tab_panels';
   info: {
@@ -1892,6 +1927,7 @@ declare module '@strapi/types' {
       'api::news-page.news-page': ApiNewsPageNewsPage;
       'api::policy-page.policy-page': ApiPolicyPagePolicyPage;
       'api::services-page.services-page': ApiServicesPageServicesPage;
+      'api::social-network.social-network': ApiSocialNetworkSocialNetwork;
       'api::tab-panel.tab-panel': ApiTabPanelTabPanel;
       'api::vacancies-page.vacancies-page': ApiVacanciesPageVacanciesPage;
       'api::vacancy.vacancy': ApiVacancyVacancy;

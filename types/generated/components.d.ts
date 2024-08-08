@@ -189,6 +189,19 @@ export interface ServicesSupportCard extends Schema.Component {
   };
 }
 
+export interface SocialsSocialItem extends Schema.Component {
+  collectionName: 'components_socials_social_items';
+  info: {
+    displayName: 'Social_item';
+    icon: 'paperPlane';
+  };
+  attributes: {
+    social_network: Attribute.Enumeration<['facebook', 'telegram', 'viber']> &
+      Attribute.Required;
+    link: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface TabsTabClipboard extends Schema.Component {
   collectionName: 'components_tabs_tab_clipboards';
   info: {
@@ -222,6 +235,7 @@ declare module '@strapi/types' {
       'gallery.vertical-gallery-item': GalleryVerticalGalleryItem;
       'image.image': ImageImage;
       'services.support-card': ServicesSupportCard;
+      'socials.social-item': SocialsSocialItem;
       'tabs.tab-clipboard': TabsTabClipboard;
     }
   }
