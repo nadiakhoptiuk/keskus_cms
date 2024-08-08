@@ -1515,6 +1515,63 @@ export interface ApiNewsPageNewsPage extends Schema.SingleType {
   };
 }
 
+export interface ApiPolicyPagePolicyPage extends Schema.SingleType {
+  collectionName: 'policy_pages';
+  info: {
+    singularName: 'policy-page';
+    pluralName: 'policy-pages';
+    displayName: 'Policy_page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    page_title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        minLength: 2;
+      }>;
+    content: Attribute.RichText &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::policy-page.policy-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::policy-page.policy-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::policy-page.policy-page',
+      'oneToMany',
+      'api::policy-page.policy-page'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiServicesPageServicesPage extends Schema.SingleType {
   collectionName: 'services_pages';
   info: {
@@ -1833,6 +1890,7 @@ declare module '@strapi/types' {
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::new.new': ApiNewNew;
       'api::news-page.news-page': ApiNewsPageNewsPage;
+      'api::policy-page.policy-page': ApiPolicyPagePolicyPage;
       'api::services-page.services-page': ApiServicesPageServicesPage;
       'api::tab-panel.tab-panel': ApiTabPanelTabPanel;
       'api::vacancies-page.vacancies-page': ApiVacanciesPageVacanciesPage;
