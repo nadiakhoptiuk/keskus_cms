@@ -1351,6 +1351,12 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
       Attribute.SetMinMaxLength<{
         minLength: 3;
       }>;
+    seo: Attribute.Component<'shared.seo'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
