@@ -189,29 +189,6 @@ export interface ServicesSupportCard extends Schema.Component {
   };
 }
 
-export interface SharedMetaSocial extends Schema.Component {
-  collectionName: 'components_shared_meta_socials';
-  info: {
-    displayName: 'metaSocial';
-    icon: 'project-diagram';
-  };
-  attributes: {
-    socialNetwork: Attribute.Enumeration<['Facebook', 'Twitter']> &
-      Attribute.Required;
-    title: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        maxLength: 60;
-      }>;
-    description: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        maxLength: 65;
-      }>;
-    image: Attribute.Media;
-  };
-}
-
 export interface SharedSeo extends Schema.Component {
   collectionName: 'components_shared_seos';
   info: {
@@ -231,9 +208,8 @@ export interface SharedSeo extends Schema.Component {
         minLength: 50;
         maxLength: 160;
       }>;
-    metaImage: Attribute.Media;
-    metaSocial: Attribute.Component<'shared.meta-social', true>;
-    keywords: Attribute.Text;
+    metaImage: Attribute.Media & Attribute.Required;
+    keywords: Attribute.Text & Attribute.Required;
   };
 }
 
@@ -283,7 +259,6 @@ declare module '@strapi/types' {
       'gallery.vertical-gallery-item': GalleryVerticalGalleryItem;
       'image.image': ImageImage;
       'services.support-card': ServicesSupportCard;
-      'shared.meta-social': SharedMetaSocial;
       'shared.seo': SharedSeo;
       'socials.social-item': SocialsSocialItem;
       'tabs.tab-clipboard': TabsTabClipboard;

@@ -757,6 +757,13 @@ export interface ApiAboutUsPageAboutUsPage extends Schema.SingleType {
       Attribute.SetMinMax<{
         min: 2;
       }>;
+    seo: Attribute.Component<'shared.seo'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -948,6 +955,13 @@ export interface ApiContactsPageContactsPage extends Schema.SingleType {
         minLength: 3;
         maxLength: 30;
       }>;
+    seo: Attribute.Component<'shared.seo'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1009,6 +1023,13 @@ export interface ApiEventsPageEventsPage extends Schema.SingleType {
       Attribute.SetMinMax<{
         min: 2;
         max: 2;
+      }>;
+    seo: Attribute.Component<'shared.seo'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
       }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1218,6 +1239,7 @@ export interface ApiGalleryPageGalleryPage extends Schema.SingleType {
     singularName: 'gallery-page';
     pluralName: 'gallery-pages';
     displayName: 'Gallery_page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1237,6 +1259,12 @@ export interface ApiGalleryPageGalleryPage extends Schema.SingleType {
       }> &
       Attribute.SetMinMaxLength<{
         minLength: 3;
+      }>;
+    seo: Attribute.Component<'shared.seo'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
       }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1352,6 +1380,7 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
         minLength: 3;
       }>;
     seo: Attribute.Component<'shared.seo'> &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1497,6 +1526,13 @@ export interface ApiNewsPageNewsPage extends Schema.SingleType {
       Attribute.SetMinMaxLength<{
         minLength: 3;
       }>;
+    seo: Attribute.Component<'shared.seo'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1527,6 +1563,7 @@ export interface ApiPolicyPagePolicyPage extends Schema.SingleType {
     singularName: 'policy-page';
     pluralName: 'policy-pages';
     displayName: 'Policy_page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1548,6 +1585,13 @@ export interface ApiPolicyPagePolicyPage extends Schema.SingleType {
         minLength: 2;
       }>;
     content: Attribute.RichText &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    seo: Attribute.Component<'shared.seo'> &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1614,6 +1658,13 @@ export interface ApiServicesPageServicesPage extends Schema.SingleType {
       }> &
       Attribute.SetMinMax<{
         min: 2;
+      }>;
+    seo: Attribute.Component<'shared.seo'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
       }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1787,6 +1838,13 @@ export interface ApiVacanciesPageVacanciesPage extends Schema.SingleType {
       }> &
       Attribute.SetMinMaxLength<{
         minLength: 2;
+      }>;
+    seo: Attribute.Component<'shared.seo'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
       }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

@@ -61,6 +61,17 @@
       "required": true,
       "minLength": 3,
       "maxLength": 30
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.seo",
+      "required": true
     }
   }
 }

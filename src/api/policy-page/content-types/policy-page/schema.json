@@ -4,7 +4,8 @@
   "info": {
     "singularName": "policy-page",
     "pluralName": "policy-pages",
-    "displayName": "Policy_page"
+    "displayName": "Policy_page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -32,6 +33,17 @@
         }
       },
       "type": "richtext",
+      "required": true
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.seo",
       "required": true
     }
   }
